@@ -25,6 +25,11 @@ productRouter.get(
   )
 );
 
+productRouter.get('/all', expressAsyncHandler(async (req, res) => {
+  const products = await Product.find()
+  res.send({products})
+}))
+
 productRouter.get(
   '/:id',
   expressAsyncHandler(async (req, res) => {
