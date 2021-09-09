@@ -30,6 +30,13 @@ productRouter.get('/all', expressAsyncHandler(async (req, res) => {
   res.send({products})
 }))
 
+
+productRouter.get('/featured', expressAsyncHandler(async (req, res) => {
+  const product = await Product.find({featured: true})
+  res.send({product})
+}))
+
+
 productRouter.get(
   '/:id',
   expressAsyncHandler(async (req, res) => {
